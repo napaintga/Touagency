@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    
+    <style>
+        .error{
+
+            color: darkred;
+        }
+        .info{
+
+            color: white;
+        }
+        body{
+            font-family: 'Times New Roman', Times, serif;
+
+            background-image: url(https://live.staticflickr.com/65535/50351288236_41497a5d3d_h.jpg);
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            display: flex;
+            justify-self: center;
+            align-self: center;
+            height: 100vh;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: rgba(1, 45, 62, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(1, 45, 62, 0.9);
+            text-align: center;
+            width: 400px;
+            height: 60%;
+            box-shadow: rgb(0, 0, 0) 0px 30px 40px -10px;
+        }
+
+        h1{
+            color: aliceblue;
+        }
+
+        a{
+            color: rgb(7, 166, 229);
+            text-decoration:none;
+            text-align: center;
+            padding: 5px;
+            margin: 5px;
+
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            width: 80%;
+            text-align: center;
+            justify-self: center;
+            align-self: center;
+            
+
+        }
+
+
+        .container input{
+            height: 25px;
+        }
+
+        .container label{
+                    color: wheat;
+                }
+
+        .container button {
+            margin: 10px;
+            height: 30px;
+            color: darkblue;
+            text-decoration: wavy;
+            font-size:medium;
+            font-family: 'Times New Roman', Times, serif;
+            border: 1px solid wheat;
+            border-radius: 10px;
+            box-shadow: rgba(4, 147, 169, 0.35) 0px 5px 15px;
+        }
+            
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Register</h1>
+    <form action="/register" method="POST">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit">Register</button>
+    </form>
+    
+    <a href="/login">Login</a>
+                        
+    {% with message = get_flashed_messages(with_categories= true)%}
+    {% if message %}
+        {% for cat, mes in message%}
+            <p class="{{cat}}">{{ mes }}</p>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+</body>
+</html>
